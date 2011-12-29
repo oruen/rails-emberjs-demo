@@ -1,0 +1,5 @@
+= Rails Ember.js Demo
+
+Small demo showing power of Ember.js and Ember-Resource.
+
+Live demo could be found at http://rails-emberjs-demo.herokuapp.com/
