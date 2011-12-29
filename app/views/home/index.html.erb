@@ -1,0 +1,83 @@
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="container-fluid">
+      <a class="brand" href="#">Rails Ember.js Demo</a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="sidebar">
+    <div class="well">
+       <script type="text/x-handlebars">
+        {{#view App.createItemView}}
+          <p><a class="btn success medium">Create item</a></p>
+        {{/view}}
+      </script>
+      <script type="text/x-handlebars">
+        {{#collection contentBinding="App.itemsController"}}
+          {{#view App.itemView contentBinding="content"}}
+            <a href="#">{{content.name}}</a>
+          {{/view}}
+          <ul>
+            {{#each content.children}}
+              {{#view App.itemView contentBinding="this"}}
+                <li><a href="#">{{content.name}}</a></li>
+              {{/view}}
+            {{/each}}
+          </ul>
+        {{/collection}}
+      </script>
+    </div>
+  </div>
+  <div class="content">
+    <form>
+      <fieldset>
+        <div class="clearfix">
+          <script type="text/x-handlebars">
+            {{#if App.selectedItemController.content}}
+              {{#view App.selectedItemView }}
+                {{#if App.selectedItemController.hasErrors }}
+                  <div class="alert-message error">
+                    <a class="close" href="#">×</a>
+                    <p><strong>Element's name can't be blank</strong></p>
+                  </div>
+                {{/if}}
+                <h5>
+                  {{#if content.parent}}
+                    Дочерний элемент "{{content.parent.name}}"
+                  {{/if}}
+                &nbsp;</h5>
+                <h2>{{content.name}}</h2>
+                <label for="xlInput">Имя</label>
+                <div class="input">
+                  {{ view App.itemTextField valueBinding="content.escapedName" }}
+                  {{#if App.selectedItemController.content.isDirty}}
+                    <span class="label warning">Changed</span>
+                  {{/if}}
+                </div>
+                <div class="well">
+                  {{#view App.saveItemView}}
+                    <a class="btn primary medium">Save</a>
+                  {{/view}}
+                  {{#view App.deleteItemView}}
+                    <a class="btn danger medium">Delete</a>
+                  {{/view}}
+                  {{#unless content.parent}}
+                    {{#view App.createSubitemView}}
+                      <a class="btn success medium">Add child</a>
+                    {{/view}}
+                  {{/unless}}
+                </div>
+              {{/view}}
+            {{else}}
+              <h3>Select or create item to edit</h3>
+            {{/if}}
+          </script>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+

@@ -1,0 +1,17 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+
+body {
+  padding-top: 60px;
+}
+
+.well {
+  margin-top: 10px;
+}
+
+.ember-view {
+  display: inline;
+}
