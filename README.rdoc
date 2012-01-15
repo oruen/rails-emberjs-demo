@@ -4,6 +4,11 @@ Small demo showing power of Ember.js and Ember-Resource.
 
 Live demo could be found at http://rails-emberjs-demo.herokuapp.com/
 
+== Recommendation
+
+Use (rvm)[http://beginrescueend.com/] to keep your entire Ruby/Gem installation for this project separate from
+your others if you haven't already.
+
 == Installation
 
     gem install bundler --no-rdoc --no-ri
