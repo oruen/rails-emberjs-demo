@@ -3,3 +3,21 @@
 Small demo showing power of Ember.js and Ember-Resource.
 
 Live demo could be found at http://rails-emberjs-demo.herokuapp.com/
+
+== Installation
+
+    gem install bundler --no-rdoc --no-ri
+    bundle install
+    rake db:migrate
+
+== Running Tests
+
+    rake
+
+== Starting Rails
+
+    rails s
+
+== Running the Web Application
+
+    localhost:3000
